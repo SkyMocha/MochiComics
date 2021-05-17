@@ -14,7 +14,7 @@ var articles = {
 
 }
 
-var highlighted_article;
+var all_articles = []
 
 fs.readdir("./stories", function (err, files) {
     
@@ -24,8 +24,6 @@ fs.readdir("./stories", function (err, files) {
 
         fs.readdir(`./stories/${dir}/`, function (err, article_files) {
 
-            let i = 0;
-
             article_files.forEach(function (file, index) {
                 // Make one pass and make the file complete
 
@@ -34,32 +32,21 @@ fs.readdir("./stories", function (err, files) {
                     
                     let name = data.split('\n')[0]
                     
-                    i+=1;
-
                     let obj = { 
                         'raw': data.split ('\n'),
                         'uri': '/' + dir + '/' + name.split (' ').join ('-'),
                         'name': name,
                         'series': dir,
-                        'num': i
-                    } 
-
-                    app.get(`${obj.uri}`, function(req, res) {
-
-                        res.render('page_template.ejs', {
-                            'raw': data.split ('\n'),
-                            'uri': '/' + dir + '/' + name.split (' ').join ('-'),
-                            'name': name,
-                            'series': dir,
-                            'num': i
-                        });
-    
-                    });
+                        'num': parseInt(file.split('txt')),
+                        'date': data.split ('\n').pop(-1)
+                    }
 
                     if (obj.series in articles)
                         articles[obj.series].push(obj);
                     else
                         articles[obj.series] = [obj]
+
+                    all_articles.push(obj);
                 });
 
             });
@@ -69,8 +56,10 @@ fs.readdir("./stories", function (err, files) {
         setTimeout(() => {
             
             let story = articles[dir].sort(function(first, second) {
-                return parseInt(second.num) + parseInt(first.num);
+                return parseInt(first.num) - parseInt(second.num);
             });
+
+            console.log (story);
 
             app.get(`/${dir}`, function(req, res) {
 
@@ -80,6 +69,19 @@ fs.readdir("./stories", function (err, files) {
                 });
     
             });
+
+            articles[dir].forEach (elem => {
+
+                app.get(`${elem.uri}`, function(req, res) {
+
+                    res.render('page_template.ejs', {
+                        story: elem,
+                        all: story
+                    });
+
+                });
+
+            })
 
         }, 1000);
         
@@ -93,15 +95,15 @@ setTimeout(() => {
     var article_json = Object.entries (articles);
 
     // Sorts articles by newest
-    // article_json.sort(function(first, second) {
-    //     return parseInt(second[0]) - parseInt(first[0]);
-    // });
+    let all = all_articles.sort(function(first, second) {
+        return Date.parse(first.date) - Date.parse(second.date);
+    });
 
     console.log (article_json);
 
     app.get('/', function(req, res) {
         res.render('index', { 
-            articles: article_json,
+            all_articles: all,
         });
     });
 

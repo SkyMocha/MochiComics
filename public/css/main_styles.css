@@ -20,7 +20,7 @@ body .bg-image {
 }
 
 body .bg-cover {
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     z-index: -9;
@@ -32,7 +32,7 @@ body .bg-cover {
 }
 
 body .bg-back {
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     z-index: -11;
@@ -45,6 +45,10 @@ body .bg-back {
 
 .half {
     width: 50%;
+}
+
+.black {
+    color: black;
 }
 
 img {
@@ -131,17 +135,22 @@ hr {
 }
 
 /* ARTICLES */
-.center_row {
-    display: flex;
-}
-
-.center_row .padding {
-}
 
 .center_row .articles, .news {
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 512px;
+    margin: auto;
+    max-width: 90%;
+}
+
+.center_row .news .recent {
+    width: 80%;
+    margin: auto;
+}
+
+.center_row .news .recent p {
+    text-align: left;
 }
 
 .center_row h1 {
@@ -167,43 +176,90 @@ hr {
     height: 192px;
 }
 
+
+.center_row .articles .chapters {
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding-top: 15px;
+    color: black;
+    text-decoration: none;
+}
+
 .center_row .articles div .chapter {
     display: block;
     padding-left: 25px;
+    text-align: left;
     color: black;
+    text-decoration: none;
 }
 
 /* BOTTOM ROW */
 
 .bottom_row {
-    display: flex;
     height: fit-content;
     background-color: white;
     box-shadow: 0px -5px 5px #888;
 }
 
-.bottom_row div {
-    width: 45%;
-    height: 200px;
-    margin: auto;
-}
-
-.bottom_row div h2 {
+.bottom_row p {
     text-align: center;
 }
 
-.bottom_row div h3 {
+.bottom_row div {
+    display: flex;
+}
+
+.bottom_row div div {
+    width: 45%;
+    min-height: 150px;
+    margin: auto;
+    display: block;
+}
+
+.bottom_row div div h2 {
+    text-align: center;
+}
+
+.bottom_row div div h3 {
     text-align: center;
 }
 
 body .body {
-    padding-left: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    /* padding-left: 5%; */
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    width: 80%;
+    margin: auto;
+    overflow-wrap: break-word;
+}
+
+body .body .footer {
+    display: flex;
+    width: 66%;
+    margin: auto;
+    padding-top: 2.5%;
+}
+
+body .body .footer a{
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    width: 33%;
+}
+body .body .footer p{
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    width: 33%;
 }
 
 
 @media (orientation: landscape) {
+
+    .center_row {
+        display: flex;
+    }    
 
     .desktop {
         display: block;
@@ -356,6 +412,10 @@ body .body {
 
 @media (orientation: portrait) {
 
+    .center_row {
+        display: block;
+    }
+
     .desktop {
         display: none;
     }
@@ -479,6 +539,10 @@ body .body {
     
     .center_row .articles {
         width: 90%;
+    }
+
+    .top_row {
+        display: flex;
     }
 
 }

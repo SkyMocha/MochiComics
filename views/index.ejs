@@ -32,10 +32,10 @@
         <div class="title">
             <h1>MochiComics</h1>
             <h3>Home of Laser Girl, UwU stories, and more UwUs!</h3>
-            <!-- <div class="flex"> 
-                <h2><a href="#members">Members</a></h2>
-                <h2><a href="#articles">Articles</a></h2>
-            </div> -->
+            <div class="flex"> 
+                <h2><a href="#">Home</a></h2>
+                <h2><a href="#">Discord</a></h2>
+            </div>
 
             <br>
 
@@ -75,6 +75,24 @@
         <div class="news">
             <h1>News</h1>
             <hr class="half">
+
+            <h2>Recent Posts</h2>
+            <div class="recent">
+                <% for(var i=0; i < 3; i++) { %>
+                    <a href="<%= all_articles[i].uri %>">
+                        <p><span class="black"><u><%= all_articles[i].series %></u></span>
+                            <br>
+                            <%= all_articles[i].num %>. <%= all_articles[i].name %>
+                            <br>
+                            <span class="black"><%= all_articles[i].date %></span>
+                        </p>
+                    </a>
+                <% } %>
+            </div>
+
+            <h2>Twitter</h2>
+            <p style="text-align: center;">N/A</p>
+
         </div>
         <div class="padding"></div>
 
@@ -86,32 +104,29 @@
 
     <div class="bottom_row">
 
-        <div>  
-            <h2>Contact</h2>
+        <div>
+            <div>  
+                <h2>Contact</h2>
 
-            <hr class="half">
+                <hr class="half">
 
-            <h3>Email: <a href="" target="_blank">N/A</a></h3>
-            <h3>Twitter: <a href="" target="_blank">N/A</a></h3>
+                <h3>Email: <a href="" target="_blank">N/A</a></h3>
+                <h3>Twitter: <a href="" target="_blank">N/A</a></h3>
+            </div>
+
+            <div>  
+                <h2>Newsletter</h2>
+
+                <hr class="half">
+
+                <h3>TBA</h3>
+            </div>
         </div>
 
-        <div>  
-            <h2>Newsletter</h2>
-
-            <hr class="half">
-
-            <h3>TBA</h3>
-        </div>
+        <p>&copy; SkyMocha & Sofia</p>
 
     </div>
 
-    <!-- <hr> -->
-
 </body>
-
-<script>
-
-
-</script>
 
 </html>
