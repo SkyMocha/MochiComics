@@ -48,7 +48,9 @@ fs.readdir("./stories", function (err, files) {
                         'date': data.split ('\n').pop(-1)
                     }
 
-                    if (obj.series in articles)
+                    // console.log (obj.name);
+
+                    if (obj.series_short in articles)
                         articles[obj.series_short].push(obj);
                     else
                         articles[obj.series_short] = [obj]
@@ -66,7 +68,9 @@ fs.readdir("./stories", function (err, files) {
                 return parseInt(first.num) - parseInt(second.num);
             });
 
-            console.log (story);
+            // console.log (story);
+
+            console.log (dir);
 
             app.get(`/${dir}`, function(req, res) {
 
@@ -78,6 +82,8 @@ fs.readdir("./stories", function (err, files) {
             });
 
             articles[dir].forEach (elem => {
+
+                console.log (elem.uri);
 
                 app.get(`${elem.uri}`, function(req, res) {
 
@@ -106,7 +112,7 @@ setTimeout(() => {
         return Date.parse(first.date) - Date.parse(second.date);
     });
 
-    console.log (article_json);
+    // console.log (article_json);
 
     app.get('/', function(req, res) {
         res.render('index', { 
@@ -116,5 +122,5 @@ setTimeout(() => {
 
 }, 1000);
 
-app.listen(8080);
-console.log('8080 is the magic port');
+app.listen(80);
+console.log('Listening on 80');

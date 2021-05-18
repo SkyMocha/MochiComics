@@ -152,6 +152,10 @@ hr {
     text-align: left;
 }
 
+.center_row .news .recent a {
+    text-decoration: none;
+}
+
 .center_row h1 {
     text-align: center;
 }
@@ -233,7 +237,6 @@ body .body {
 
 body .body .footer {
     display: flex;
-    width: 66%;
     margin: auto;
     padding-top: 2.5%;
 }
@@ -418,6 +421,10 @@ body .body .footer p{
         padding-left: 10px;
     }
 
+    body .body .footer {
+        width: 70%;
+    }
+
 }
 
 @media (orientation: portrait) {
@@ -569,6 +576,10 @@ body .body .footer p{
         text-align: center;
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    body .body .footer {
+        width: 100%;
     }
 
 }
