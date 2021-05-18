@@ -32,19 +32,26 @@ fs.readdir("./stories", function (err, files) {
                     
                     let name = data.split('\n')[0]
                     
+                    let series = dir;
+                    if (dir == 'GameReset')
+                        series = 'Game->Reset'
+                    else if (dir == 'LaserKid')
+                        series = 'Laser Kid'
+
                     let obj = { 
                         'raw': data.split ('\n'),
                         'uri': '/' + dir + '/' + name.split (' ').join ('-'),
                         'name': name,
-                        'series': dir,
+                        'series_short': dir,
+                        'series': series,
                         'num': parseInt(file.split('txt')),
                         'date': data.split ('\n').pop(-1)
                     }
 
                     if (obj.series in articles)
-                        articles[obj.series].push(obj);
+                        articles[obj.series_short].push(obj);
                     else
-                        articles[obj.series] = [obj]
+                        articles[obj.series_short] = [obj]
 
                     all_articles.push(obj);
                 });
@@ -64,7 +71,7 @@ fs.readdir("./stories", function (err, files) {
             app.get(`/${dir}`, function(req, res) {
 
                 res.render('story_template.ejs', {
-                    name: dir,
+                    name: story[0].series,
                     story: story
                 });
     
