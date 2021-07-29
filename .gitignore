@@ -1,2 +1,6 @@
 node_modules
-stories
+stories/*
+stories/Misery/1.txt
+*.txt
+public/assets/
+public/assets/*

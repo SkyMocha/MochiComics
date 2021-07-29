@@ -1,5 +1,5 @@
 body {
-    
+
     /* background-size: 100%; */
     /* background-repeat: no-repeat; */
     width: 100%;
@@ -83,8 +83,8 @@ hr {
 /* TITLE */
 .top_row {
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} 
+    box-shadow: 0px -5px 5px #888;
+}
 
 .title {
     margin-left: auto;
@@ -259,7 +259,7 @@ body .body .footer p{
 
     .center_row {
         display: flex;
-    }    
+    }
 
     .desktop {
         display: block;
@@ -275,7 +275,7 @@ body .body .footer p{
         height: 212px;
         margin: auto;
         display: block;
-    
+
     }
 
     .thumb {
@@ -292,7 +292,7 @@ body .body .footer p{
         /* margin: auto; */
         display: block;
     }
-    
+
     .top_row {
         display: flex;
     }
@@ -348,7 +348,7 @@ body .body .footer p{
         margin: auto;
         line-height: normal;
     }
-    
+
     .members .years div h3 {
         text-align: right;
         margin-top: auto;
@@ -403,7 +403,7 @@ body .body .footer p{
     .center_row .padding_center {
         width: 5%;
     }
-    
+
     .center_row .articles {
         width: 47.5%;
     }
@@ -447,7 +447,7 @@ body .body .footer p{
         height: 164px;
         margin: auto;
         display: block;
-    
+
     }
 
     .thumb {
@@ -456,7 +456,7 @@ body .body .footer p{
         height: 124px;
         margin: auto;
         display: block;
-    
+
     }
 
     .skyscraper {
@@ -507,7 +507,7 @@ body .body .footer p{
         margin: auto;
         line-height: normal;
     }
-    
+
     .members .years div h3 {
         text-align: right;
         margin-top: auto;
@@ -557,7 +557,7 @@ body .body .footer p{
     .center_row .padding_center {
         width: 0%;
     }
-    
+
     .center_row .articles {
         width: 90%;
     }
