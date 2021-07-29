@@ -83,7 +83,8 @@ hr {
 /* TITLE */
 .top_row {
     background-color: white;
-    box-shadow: 0px -5px 5px #888;
+    box-shadow: -2px 3px 5px #888, 2px -2px 5px #888;
+    margin: auto;
 }
 
 .title {
@@ -200,7 +201,11 @@ hr {
 .bottom_row {
     height: fit-content;
     background-color: white;
-    box-shadow: 0px -5px 5px #888;
+    /* box-shadow: 0px -5px 5px #888; */
+    box-shadow: -6px 5px 8px #888, 2px -2px 8px #888;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -10%;
 }
 
 .bottom_row p {
@@ -230,9 +235,10 @@ body .body {
     /* padding-left: 5%; */
     padding-top: 2.5%;
     padding-bottom: 2.5%;
-    width: 80%;
     margin: auto;
     overflow-wrap: break-word;
+    /* width: 65%;
+    box-shadow: -6px 5px 8px #888, 2px -2px 8px #888; */
 }
 
 body .body .footer {
@@ -240,6 +246,13 @@ body .body .footer {
     margin: auto;
     padding-top: 2.5%;
 }
+
+.body p {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 body .body .footer a{
     text-align: center;
@@ -425,6 +438,19 @@ body .body .footer p{
         width: 70%;
     }
 
+    body .body {
+        width: 65%;
+        box-shadow: -6px 5px 8px #888, 2px -2px 8px #888;
+    }
+
+    .bottom_row_short {
+        width: 65%;
+    }
+
+    .top_row_short {
+        width: 65%;
+    }
+
 }
 
 @media (orientation: portrait) {
@@ -579,6 +605,19 @@ body .body .footer p{
     }
 
     body .body .footer {
+        width: 100%;
+    }
+
+    body .body {
+        width: 90%;
+        /* box-shadow: -6px 5px 8px #888, 2px -2px 8px #888; */
+    }
+
+    .bottom_row_short {
+        width: 100%;
+    }
+
+    .top_row_short {
         width: 100%;
     }
 

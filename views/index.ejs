@@ -7,17 +7,17 @@
 <html>
 
 <head>
-<title>MochiComics</title>
+<title><%= desc.title %></title>
 <link rel="icon" href="/assets/CSLogo.png" type="image/gif">
 <meta name="theme-color" content="#4B52EC"/>
-<meta property="og:title" content="SkyMocha"/>
+<meta property="og:title" content="<%= desc.title %>"/>
 <meta property="og:url" content="http://www.skymocha.net"/>
-<meta property="og:description" content="The SkyMocha website associated with the SkyMocha YouTube channel containing a portfolio of work and a personal blog."/>
+<meta property="og:description" content="<%= desc.description %>"/>
 <meta property="og:image" content="/logo_assets/SkyMocha.png"/>
 
-<meta name="descritpion" id="descritpion" content="The SkyMocha website associated with the SkyMocha YouTube channel containing a portfolio of work and a personal blog.">
-<meta name="keywords" id="keywords" content="SkyMocha">
-<meta name="author" content="SkyMocha">
+<meta name="descritpion" id="descritpion" content="<%= desc.description %>">
+<meta name="keywords" id="keywords" content="<%= desc.keywords %>">
+<meta name="author" content="<%= desc.author %>">
 
 </head>
 
@@ -31,7 +31,7 @@
 
         <div class="title">
             <h1>MochiComics</h1>
-            <h3>Home of Laser Kid, Game->Reset, and More!</h3>
+            <!-- <h3>Home of Laser Kid, Game->Reset, and More!</h3> -->
             <div class="flex"> 
                 <h2><a href="#">Home</a></h2>
                 <h2><a href="#">Discord</a></h2>
@@ -58,7 +58,7 @@
                 <img src="/assets/test_dog_512.png" alt="">
                 <div>
                     <h2>Misery</h2>
-                    <h4>ljkhfdshjkladfshjdfsah</h4>
+                    <h4><%= desc.stories.misery.description %></h4>
                 </div>
             </a>
 
@@ -116,6 +116,7 @@
         </div>
 
         <p>&copy; SkyMocha & Sofia</p>
+        <br>
 
     </div>
 

@@ -10,11 +10,21 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
+const desc = require("./description.json");
+
 var articles = {
 
 }
 
 var all_articles = []
+
+// checks to see if the date is actually a date, and returns undefined otherwise
+function is_date (s) {
+    let d = new Date (s);
+    if (!isNaN(d.getTime()))
+        return s;
+    return undefined;
+}
 
 fs.readdir("./stories", function (err, files) {
     
@@ -45,10 +55,17 @@ fs.readdir("./stories", function (err, files) {
                         'series_short': dir,
                         'series': series,
                         'num': parseInt(file.split('txt')),
-                        'date': data.split ('\n').pop(-1)
+                        'date': is_date(data.split ('\n').pop(-1))
                     }
 
-                    // console.log (obj.name);
+                    Object.entries(obj).forEach(e => {
+                        // console.log(e)
+                        if (e[1]==undefined)
+                            {
+                                console.error ("\x1b[31m",`ERROR @ ${dir}/${file} ${e[0]}`);
+                                console.error ("\x1b[0m")
+                            }
+                    })
 
                     if (obj.series_short in articles)
                         articles[obj.series_short].push(obj);
@@ -108,8 +125,9 @@ setTimeout(() => {
     var article_json = Object.entries (articles);
 
     // Sorts articles by newest
+
     let all = all_articles.sort(function(first, second) {
-        return Date.parse(first.date) - Date.parse(second.date);
+        return Date.parse(second.date) - Date.parse(first.date);
     });
 
     // console.log (article_json);
@@ -117,6 +135,7 @@ setTimeout(() => {
     app.get('/', function(req, res) {
         res.render('index', { 
             all_articles: all,
+            desc: desc
         });
     });
 
