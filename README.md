@@ -1,3 +1,5 @@
+![mochicomics](https://user-images.githubusercontent.com/34521078/146678199-00adb63e-e7ba-42a8-b778-8408186983ee.jpg)
+
 # MochiComics
 A prototype for a modular web-novel hosting website. 
 
